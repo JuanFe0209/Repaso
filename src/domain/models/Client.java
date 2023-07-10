@@ -2,12 +2,26 @@ package domain.models;
 
 import domain.enums.ClientType;
 
+import java.util.Objects;
+
 public class Client {
     private String identifeir;
     private String fullName;
     private String email;
     private ClientType type;
     private String contact;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Client)) return false;
+        Client client = (Client) o;
+        return Objects.equals(getIdentifeir(), client.getIdentifeir());
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(getIdentifeir());
+    }
+
 
     public Client(String identifeir, String fullName, String email, ClientType type, String contact) {
         this.identifeir = identifeir;
@@ -16,7 +30,11 @@ public class Client {
         this.type = type;
         this.contact = contact;
     }
-    public Client(){}
+
+
+    public Client(){
+
+    }
 
     public String getIdentifeir() {
         return identifeir;

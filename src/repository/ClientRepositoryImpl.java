@@ -25,7 +25,12 @@ public class ClientRepositoryImpl implements ClientRepository{
         clientSaved.setContact(client.cellphone());
         clientSaved.setEmail(client.email());
         clientSaved.setFullName(client.fullName());
-        return null;
+        updateClientList(clientSaved);
+        return ClientMapper.mapFrom(clientSaved);
+    }
+    private void updateClientList(Client client){
+        clients.remove(client);
+        clients.add(client);
     }
 
     @Override
