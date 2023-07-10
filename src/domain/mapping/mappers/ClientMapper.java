@@ -3,6 +3,8 @@ package domain.mapping.mappers;
 import domain.mapping.dtos.ClientDto;
 import domain.models.Client;
 
+import java.util.List;
+
 public class ClientMapper {
     public static ClientDto mapFrom(Client source){
         return new ClientDto(source.getIdentifeir(),
@@ -17,5 +19,8 @@ public class ClientMapper {
                 source.email(),
                 source.clientType(),
                 source.cellphone());
+    }
+    public static List<ClientDto> mapFrom(List<Client> source){
+        return null;
     }
 }
